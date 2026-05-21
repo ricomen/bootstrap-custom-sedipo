@@ -64,6 +64,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // 8. Кастомизация компонентов
 @import "alerts";
 @import "toasts";
+@import "badges";
 
 // 9. Свои стили проекта ниже
 body {

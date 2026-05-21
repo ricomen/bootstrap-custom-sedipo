@@ -1,0 +1,58 @@
+// =============================================================================
+// Badge (источник: Figma node-id=32:10234, COMPONENT_SET "Badges")
+//
+// Варианты Color: Primary, Success, Danger, Warning, Dark, Light.
+// Варианты Variant: Fill*, Soft.
+// Размеры:
+//   - "Default 20px" — базовый .badge (12/14, padding 4/8)
+//   - "Medium 24px"  — .badge-md     (14/20, padding 4/12)
+//
+// Отличия от дефолта Bootstrap 5.3:
+//   - шрифт Manrope Bold 700 (вместо $font-family-sans-serif)
+//   - border-radius всегда pill (12px > половины высоты 20/24px)
+//   - добавлен модификатор размера .badge-md
+//   - добавлены soft-варианты .badge-soft-{color}
+// =============================================================================
+
+.badge {
+  font-family: $token-font-family-display;
+  line-height: calc(14 / 12); // 14px при font 12px
+
+  // Fill-варианты используем стандартные .text-bg-{color} (Bootstrap).
+  // Soft-варианты — кастомные .badge-soft-{color} ниже.
+}
+
+// ---- Размер "Medium 24px" (Figma) ------------------------------------------
+.badge-md {
+  --bs-badge-font-size: 0.875rem;  // 14px
+  --bs-badge-padding-y: 0.25rem;   // 4px
+  --bs-badge-padding-x: 0.75rem;   // 12px
+
+  line-height: calc(20 / 14); // 20px при font 14px
+}
+
+// ---- Soft-варианты (Figma) -------------------------------------------------
+.badge-soft-primary {
+  --bs-badge-color: #{$token-emphasis-text-primary};
+  background-color: $token-subtle-bg-primary;
+}
+
+.badge-soft-success {
+  --bs-badge-color: #{$token-emphasis-text-success};
+  background-color: $token-subtle-bg-success;
+}
+
+.badge-soft-danger {
+  --bs-badge-color: #{$token-emphasis-text-danger};
+  background-color: $token-subtle-bg-danger;
+}
+
+.badge-soft-warning {
+  --bs-badge-color: #{$token-emphasis-text-warning};
+  background-color: $token-subtle-bg-warning;
+}
+
+.badge-soft-light {
+  --bs-badge-color: #{$token-emphasis-text-light};
+  background-color: $token-subtle-bg-light;
+}

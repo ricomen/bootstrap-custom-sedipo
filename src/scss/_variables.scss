@@ -63,6 +63,14 @@ $border-radius: 0.5rem;
 $border-radius-sm: 0.375rem;
 $border-radius-lg: 0.75rem;
 
+// Badge (источник: Figma node-id=32:10234, размер "Default 20px")
+// font 12px / line 14px, padding 4/8, radius 12px (pill)
+$badge-font-size:    0.75rem;      // 12px
+$badge-font-weight:  700;
+$badge-padding-y:    0.25rem;      // 4px
+$badge-padding-x:    0.5rem;       // 8px
+$badge-border-radius: 50rem;       // pill
+
 // Флаги
 $enable-shadows: true;
 $enable-gradients: false;

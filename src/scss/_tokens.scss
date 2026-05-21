@@ -35,6 +35,7 @@ $token-red-15:  #ffd9d9; // 15%
 $token-red-24-black: #c20202; // 24% black overlay (используется как Danger)
 
 // ----- Green -----------------------------------------------------------------
+$token-green-900: #0a3622; // text-emphasis (источник: компонент Badge soft, node 32:10234)
 $token-green-500: #198754; // Success
 $token-green-300: #75b798; // border-subtle (источник: компонент alert, node 32:10189)
 $token-green-100: #d1e7dd; // bg-subtle
@@ -47,6 +48,11 @@ $token-yellow-100: #fff3cd; // bg-subtle
 
 // ----- White -----------------------------------------------------------------
 $token-white: #ffffff;
+
+// ----- Typography ------------------------------------------------------------
+// Источник: компонент Badge, node 32:10234 (Manrope Bold 700)
+$token-font-family-display: "Manrope", system-ui, -apple-system, "Segoe UI",
+  Roboto, "Helvetica Neue", sans-serif;
 
 // =============================================================================
 // Семантические алиасы (как в Figma подписаны --bs-* переменные)
@@ -90,10 +96,11 @@ $token-subtle-border-success: $token-green-300;
 $token-subtle-border-warning: $token-yellow-300;
 
 // Emphasis (text) — используется для *-text-emphasis
-$token-emphasis-text-primary: $token-blue-100;
+// Источник: компонент Badge soft, node 32:10234
+$token-emphasis-text-primary: $token-blue-100;     // Primary soft: #1961aa
 $token-emphasis-text-info:    $token-blue-100;
-$token-emphasis-text-light:   $token-black-50;
+$token-emphasis-text-light:   $token-black-100;    // Light soft: #2f2f2f
 $token-emphasis-text-dark:    $token-black-100;
-$token-emphasis-text-danger:  $token-red-24-black;
-$token-emphasis-text-success: $token-green-500;
-$token-emphasis-text-warning: $token-yellow-700;
+$token-emphasis-text-danger:  $token-red-24-black; // Danger soft: #c20202
+$token-emphasis-text-success: $token-green-900;    // Success soft: #0a3622
+$token-emphasis-text-warning: $token-yellow-700;   // Warning soft: #997404
