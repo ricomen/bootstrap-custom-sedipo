@@ -23,6 +23,10 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 //    строку и раскомментируйте список ниже.
 @import "bootstrap/scss/bootstrap";
 
+// Примечание: Bootstrap Icons подключается из main.js через
+// `bootstrap-icons/font/bootstrap-icons.css`, чтобы Vite корректно
+// разрешал относительные пути к woff/woff2-шрифтам.
+
 // --- Селективные импорты (альтернатива полному bootstrap) ---
 // @import "bootstrap/scss/reboot";
 // @import "bootstrap/scss/type";
@@ -57,7 +61,10 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // @import "bootstrap/scss/helpers";
 // @import "bootstrap/scss/utilities/api";
 
-// 8. Свои стили проекта ниже
+// 8. Кастомизация компонентов
+@import "alerts";
+
+// 9. Свои стили проекта ниже
 body {
   min-height: 100vh;
 }

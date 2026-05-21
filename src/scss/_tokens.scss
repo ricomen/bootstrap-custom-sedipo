@@ -36,13 +36,13 @@ $token-red-24-black: #c20202; // 24% black overlay (используется к�
 
 // ----- Green -----------------------------------------------------------------
 $token-green-500: #198754; // Success
-$token-green-300: #a3cfbb; // border-subtle (не задано в Figma, дефолт BS)
+$token-green-300: #75b798; // border-subtle (источник: компонент alert, node 32:10189)
 $token-green-100: #d1e7dd; // bg-subtle
 
 // ----- Yellow ----------------------------------------------------------------
 $token-yellow-700: #997404; // text-emphasis (не задано в Figma, дефолт BS)
 $token-yellow-500: #ffc107; // Warning
-$token-yellow-300: #ffe69c; // border-subtle (не задано в Figma, дефолт BS)
+$token-yellow-300: #ffda6a; // border-subtle (источник: компонент alert, node 32:10189)
 $token-yellow-100: #fff3cd; // bg-subtle
 
 // ----- White -----------------------------------------------------------------
@@ -83,7 +83,7 @@ $token-subtle-bg-warning: $token-yellow-100;
 // Subtle (border) — используется для *-border-subtle
 $token-subtle-border-primary: $token-blue-50;
 $token-subtle-border-info:    $token-blue-50;
-$token-subtle-border-light:   $token-gray-50;
+$token-subtle-border-light:   $token-gray-75; // alert Light: #d3d3d3
 $token-subtle-border-dark:    $token-gray-75;
 $token-subtle-border-danger:  $token-red-50;
 $token-subtle-border-success: $token-green-300;
