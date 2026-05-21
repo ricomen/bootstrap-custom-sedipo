@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru" data-bs-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap + Vite</title>
+  </head>
+  <body>
+    <div class="container py-5">
+      <h1 class="mb-4">Custom Bootstrap + Vite</h1>
+
+      <div class="row g-3 mb-4">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Карточка</h5>
+              <p class="card-text">
+                Проверка кастомных стилей. Поменяйте переменные в
+                <code>src/scss/_variables.scss</code>.
+              </p>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#demoModal"
+              >
+                Открыть modal
+              </button>
+              <button
+                type="button"
+                class="btn btn-brand ms-2"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Кастомный цвет из $theme-colors"
+              >
+                Brand
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="alert alert-success" role="alert">
+            Сборка SCSS работает через Vite + Dart Sass.
+          </div>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Dropdown
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="modal fade"
+        id="demoModal"
+        tabindex="-1"
+        aria-labelledby="demoModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="demoModalLabel">Modal</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">JS-компоненты Bootstrap работают.</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Закрыть
+              </button>
+              <button type="button" class="btn btn-primary">Сохранить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
