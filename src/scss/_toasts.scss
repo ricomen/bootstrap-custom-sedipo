@@ -1,0 +1,92 @@
+// =============================================================================
+// Toast (источник: Figma node-id=32:10275, COMPONENT_SET "toast")
+//
+// Варианты Color: default, primary, success, danger, warning, dark.
+//
+// Отличия от дефолта Bootstrap 5.3:
+//   - max-width 350px, padding 12px, font-size 14px / line-height 20px
+//   - border-radius 4px (по Figma), без border
+//   - тень 0 8px 16px rgba(0,0,0,.15)
+//   - фон у цветовых вариантов сплошной (а не полупрозрачный body-bg)
+//   - крестик без BS-маски: серый на светлых вариантах, белый — на тёмных
+// =============================================================================
+
+.toast {
+  --bs-toast-max-width: 350px;
+  --bs-toast-padding-x: 0.75rem;     // 12px
+  --bs-toast-padding-y: 0.75rem;     // 12px
+  --bs-toast-font-size: 0.875rem;    // 14px
+  --bs-toast-border-radius: 0.25rem; // 4px
+  --bs-toast-border-width: 0;
+  --bs-toast-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --bs-toast-bg: #{$token-white};
+  --bs-toast-color: #{$token-text-body};
+
+  line-height: 1.4286; // 20 / 14
+
+  // Кастомный крестик: без BS-маски (как в _alerts.scss)
+  .btn-close {
+    flex-shrink: 0;
+    width: 1rem;  // 16px
+    height: 1rem;
+    padding: 0;
+    margin: 0 0.75rem 0 0;
+    background: none;
+    opacity: 1;
+    color: $token-black-75;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: currentColor;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z'/%3E%3C/svg%3E") center / contain no-repeat;
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    &:hover { color: $token-text-body; }
+    &:focus { box-shadow: none; }
+  }
+}
+
+// ---- Цветовые варианты (Figma) ----
+.toast-primary {
+  --bs-toast-bg: #{$token-brand-primary};
+  --bs-toast-color: #{$token-white};
+
+  .btn-close { color: $token-white; }
+  .btn-close:hover { color: rgba($token-white, 0.85); }
+}
+
+.toast-success {
+  --bs-toast-bg: #{$token-brand-success};
+  --bs-toast-color: #{$token-white};
+
+  .btn-close { color: $token-white; }
+  .btn-close:hover { color: rgba($token-white, 0.85); }
+}
+
+.toast-danger {
+  --bs-toast-bg: #{$token-brand-danger};
+  --bs-toast-color: #{$token-white};
+
+  .btn-close { color: $token-white; }
+  .btn-close:hover { color: rgba($token-white, 0.85); }
+}
+
+.toast-warning {
+  --bs-toast-bg: #{$token-brand-warning};
+  --bs-toast-color: #{$token-text-body};
+
+  .btn-close { color: $token-black-75; }
+  .btn-close:hover { color: $token-text-body; }
+}
+
+.toast-dark {
+  --bs-toast-bg: #{$token-brand-dark};
+  --bs-toast-color: #{$token-white};
+
+  .btn-close { color: $token-white; }
+  .btn-close:hover { color: rgba($token-white, 0.85); }
+}
