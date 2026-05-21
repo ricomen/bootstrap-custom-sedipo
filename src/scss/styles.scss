@@ -1,22 +1,25 @@
 // 1. Функции Bootstrap (нужны для tint-color, shade-color и пр.)
 @import "bootstrap/scss/functions";
 
-// 2. Наши переопределения переменных (до variables/maps)
+// 2. Дизайн-токены из Figma (только переменные, никаких side-effects)
+@import "tokens";
+
+// 3. Наши переопределения переменных (до variables/maps), используют токены
 @import "variables";
 
-// 3. Переменные и карты Bootstrap
+// 4. Переменные и карты Bootstrap
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 
-// 4. Дополнения к картам (мерж custom-colors в theme-colors)
+// 5. Дополнения к картам (мерж custom-colors в theme-colors)
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
-// 5. Mixins, root, maps
+// 6. Mixins, root, maps
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/root";
 
-// 6. Полный Bootstrap. Чтобы оставить только нужное -- закомментируйте эту
+// 7. Полный Bootstrap. Чтобы оставить только нужное -- закомментируйте эту
 //    строку и раскомментируйте список ниже.
 @import "bootstrap/scss/bootstrap";
 
@@ -54,7 +57,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // @import "bootstrap/scss/helpers";
 // @import "bootstrap/scss/utilities/api";
 
-// 7. Свои стили проекта ниже
+// 8. Свои стили проекта ниже
 body {
   min-height: 100vh;
 }

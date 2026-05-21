@@ -1,0 +1,99 @@
+// =============================================================================
+// Design Tokens (источник: Figma)
+// node-id=11:55 (секция "Colors")
+//
+// Это «сырая» палитра — никакого Bootstrap-маппинга здесь нет.
+// Маппинг на Bootstrap-переменные (primary, danger и т.д.) — в _variables.scss.
+// =============================================================================
+
+// ----- Blue ------------------------------------------------------------------
+$token-blue-100: #1961aa; // 100%
+$token-blue-75:  #5388bf; // 75%
+$token-blue-50:  #8cb0d5; // 50%
+$token-blue-25:  #c5d7ea; // 25%
+$token-blue-10:  #e8eff6; // 10%
+
+// ----- Black -----------------------------------------------------------------
+$token-black-100: #2f2f2f; // 100%
+$token-black-75:  #656565; // 75%
+$token-black-50:  #979797; // 50%
+$token-black-25:  #cbcbcb; // 25%
+
+// ----- Gray ------------------------------------------------------------------
+$token-gray-100: #c5c5c5; // 100%
+$token-gray-75:  #d3d3d3; // 75%
+$token-gray-50:  #e2e2e2; // 50%
+$token-gray-25:  #f1f1f1; // 25%
+$token-gray-15:  #f7f7f7; // 15%
+
+// ----- Red -------------------------------------------------------------------
+$token-red-100: #ff0303; // 100%
+$token-red-75:  #ff4242; // 75%
+$token-red-50:  #ff8181; // 50%
+$token-red-25:  #ffc0c0; // 25%
+$token-red-15:  #ffd9d9; // 15%
+$token-red-24-black: #c20202; // 24% black overlay (используется как Danger)
+
+// ----- Green -----------------------------------------------------------------
+$token-green-500: #198754; // Success
+$token-green-300: #a3cfbb; // border-subtle (не задано в Figma, дефолт BS)
+$token-green-100: #d1e7dd; // bg-subtle
+
+// ----- Yellow ----------------------------------------------------------------
+$token-yellow-700: #997404; // text-emphasis (не задано в Figma, дефолт BS)
+$token-yellow-500: #ffc107; // Warning
+$token-yellow-300: #ffe69c; // border-subtle (не задано в Figma, дефолт BS)
+$token-yellow-100: #fff3cd; // bg-subtle
+
+// ----- White -----------------------------------------------------------------
+$token-white: #ffffff;
+
+// =============================================================================
+// Семантические алиасы (как в Figma подписаны --bs-* переменные)
+// Используются в _variables.scss и при необходимости в проекте напрямую.
+// =============================================================================
+
+// Text
+$token-text-body:      $token-black-100;
+$token-text-secondary: $token-black-75;
+$token-text-tertiary:  $token-black-50;
+
+// Surface / background
+$token-bg-body:        $token-white;
+$token-bg-secondary:   $token-gray-15;
+
+// Brand
+$token-brand-primary:  $token-blue-100;
+$token-brand-info:     $token-blue-100;
+$token-brand-light:    $token-gray-15;
+$token-brand-dark:     $token-black-100;
+$token-brand-danger:   $token-red-24-black;
+$token-brand-success:  $token-green-500;
+$token-brand-warning:  $token-yellow-500;
+
+// Subtle (bg) — используется для *-bg-subtle
+$token-subtle-bg-primary: $token-blue-10;
+$token-subtle-bg-info:    $token-blue-10;
+$token-subtle-bg-light:   $token-gray-15;
+$token-subtle-bg-dark:    $token-black-25;
+$token-subtle-bg-danger:  $token-red-15;
+$token-subtle-bg-success: $token-green-100;
+$token-subtle-bg-warning: $token-yellow-100;
+
+// Subtle (border) — используется для *-border-subtle
+$token-subtle-border-primary: $token-blue-50;
+$token-subtle-border-info:    $token-blue-50;
+$token-subtle-border-light:   $token-gray-50;
+$token-subtle-border-dark:    $token-gray-75;
+$token-subtle-border-danger:  $token-red-50;
+$token-subtle-border-success: $token-green-300;
+$token-subtle-border-warning: $token-yellow-300;
+
+// Emphasis (text) — используется для *-text-emphasis
+$token-emphasis-text-primary: $token-blue-100;
+$token-emphasis-text-info:    $token-blue-100;
+$token-emphasis-text-light:   $token-black-50;
+$token-emphasis-text-dark:    $token-black-100;
+$token-emphasis-text-danger:  $token-red-24-black;
+$token-emphasis-text-success: $token-green-500;
+$token-emphasis-text-warning: $token-yellow-700;

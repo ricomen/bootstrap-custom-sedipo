@@ -1,19 +1,56 @@
 // Переопределения Bootstrap. Должны идти ПОСЛЕ functions, но ДО variables/maps.
+//
+// Все цвета берутся из дизайн-токенов в _tokens.scss
+// (источник — Figma node-id=11:55).
 
-// Палитра
-$primary: #0074d9;
-$secondary: #7fdbff;
-$success: #198754;
-$info: #0dcaf0;
-$warning: #ffc107;
-$danger: #dc3545;
-$light: #f8f9fa;
-$dark: #212529;
+// Палитра (маппинг tokens -> Bootstrap theme-colors)
+$primary:   $token-brand-primary;
+$secondary: $token-text-secondary; // Black 75% -- по Figma "Secondary"
+$success:   $token-brand-success;
+$info:      $token-brand-info;
+$warning:   $token-brand-warning;
+$danger:    $token-brand-danger;
+$light:     $token-brand-light;
+$dark:      $token-brand-dark;
 
 // Доп. цвет в theme-colors -> сгенерит .btn-brand, .bg-brand, .text-brand и т.д.
 $custom-colors: (
-  "brand": #1a73e8,
+  "brand": $token-blue-100,
 );
+
+// Текст / фоны (для CSS-переменных Bootstrap 5.3)
+$body-color:        $token-text-body;
+$body-bg:           $token-bg-body;
+$secondary-color:   $token-text-secondary;
+$secondary-bg:      $token-bg-secondary;
+$tertiary-color:    $token-text-tertiary;
+
+// Subtle bg
+$primary-bg-subtle: $token-subtle-bg-primary;
+$info-bg-subtle:    $token-subtle-bg-info;
+$light-bg-subtle:   $token-subtle-bg-light;
+$dark-bg-subtle:    $token-subtle-bg-dark;
+$danger-bg-subtle:  $token-subtle-bg-danger;
+$success-bg-subtle: $token-subtle-bg-success;
+$warning-bg-subtle: $token-subtle-bg-warning;
+
+// Subtle border
+$primary-border-subtle: $token-subtle-border-primary;
+$info-border-subtle:    $token-subtle-border-info;
+$light-border-subtle:   $token-subtle-border-light;
+$dark-border-subtle:    $token-subtle-border-dark;
+$danger-border-subtle:  $token-subtle-border-danger;
+$success-border-subtle: $token-subtle-border-success;
+$warning-border-subtle: $token-subtle-border-warning;
+
+// Text emphasis
+$primary-text-emphasis: $token-emphasis-text-primary;
+$info-text-emphasis:    $token-emphasis-text-info;
+$light-text-emphasis:   $token-emphasis-text-light;
+$dark-text-emphasis:    $token-emphasis-text-dark;
+$danger-text-emphasis:  $token-emphasis-text-danger;
+$success-text-emphasis: $token-emphasis-text-success;
+$warning-text-emphasis: $token-emphasis-text-warning;
 
 // Типографика
 $font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
