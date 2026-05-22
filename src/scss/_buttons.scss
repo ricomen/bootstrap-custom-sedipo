@@ -1,0 +1,150 @@
+// =============================================================================
+// Button (источник: Figma node-id=32:9890, COMPONENT_SET "button")
+//
+// Размеры:
+//   - Small 38px — базовый .btn (8/16 padding, 14px Medium 500)
+//   - Large 48px — .btn-lg (13/24 padding, 16px SemiBold 600)
+//
+// Стили (Figma → Bootstrap):
+//   - Primary  → .btn-primary
+//   - Secondary (outline) → .btn-secondary
+//   - Light    → .btn-light
+//   - Clean    → .btn-clean (кастом)
+//
+// Отличия от дефолта Bootstrap 5.3:
+//   - шрифт Manrope; disabled без opacity, явные цвета из Figma
+//   - Secondary = outline (не solid gray)
+//   - gap 8px между иконкой и текстом; модификатор .btn-icon
+// =============================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; // 8px
+  font-family: $token-font-family-display;
+  box-shadow: none;
+
+  // Гарантирует высоту Figma Small 38px даже при колебаниях метрик шрифта
+  min-height: 2.375rem;
+
+  &:focus-visible {
+    box-shadow: none;
+  }
+}
+
+// ---- Large (Figma "Large 48px") -------------------------------------------
+.btn-lg {
+  --bs-btn-font-weight: 600;
+  line-height: 1.25; // 20/16
+
+  min-height: 3rem;
+}
+
+// ---- Primary ---------------------------------------------------------------
+.btn-primary {
+  --bs-btn-color: #{$token-btn-primary-color};
+  --bs-btn-bg: #{$token-btn-primary-bg};
+  --bs-btn-border-color: #{$token-btn-primary-bg};
+  --bs-btn-hover-color: #{$token-btn-primary-color};
+  --bs-btn-hover-bg: #{$token-btn-primary-bg-hover};
+  --bs-btn-hover-border-color: #{$token-btn-primary-bg-hover};
+  --bs-btn-active-color: #{$token-btn-primary-color};
+  --bs-btn-active-bg: #{$token-btn-primary-bg-hover};
+  --bs-btn-active-border-color: #{$token-btn-primary-bg-hover};
+  --bs-btn-disabled-color: #{$token-btn-primary-color};
+  --bs-btn-disabled-bg: #{$token-btn-primary-bg-disabled};
+  --bs-btn-disabled-border-color: #{$token-btn-primary-bg-disabled};
+}
+
+// ---- Secondary (outline) ---------------------------------------------------
+.btn-secondary {
+  --bs-btn-color: #{$token-btn-secondary-color};
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: #{$token-btn-secondary-border};
+  --bs-btn-hover-color: #{$token-btn-secondary-color};
+  --bs-btn-hover-bg: #{$token-btn-secondary-bg-hover};
+  --bs-btn-hover-border-color: #{$token-btn-secondary-border};
+  --bs-btn-active-color: #{$token-btn-secondary-color};
+  --bs-btn-active-bg: #{$token-btn-secondary-bg-hover};
+  --bs-btn-active-border-color: #{$token-btn-secondary-border};
+  --bs-btn-disabled-color: #{$token-btn-secondary-color-disabled};
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #{$token-btn-secondary-border-disabled};
+}
+
+// ---- Light -----------------------------------------------------------------
+.btn-light {
+  --bs-btn-color: #{$token-btn-light-color};
+  --bs-btn-bg: #{$token-btn-light-bg};
+  --bs-btn-border-color: #{$token-btn-light-bg};
+  --bs-btn-hover-color: #{$token-btn-light-color};
+  --bs-btn-hover-bg: #{$token-btn-light-bg-hover};
+  --bs-btn-hover-border-color: #{$token-btn-light-bg-hover};
+  --bs-btn-active-color: #{$token-btn-light-color};
+  --bs-btn-active-bg: #{$token-btn-light-bg-hover};
+  --bs-btn-active-border-color: #{$token-btn-light-bg-hover};
+  --bs-btn-disabled-color: #{$token-btn-light-color-disabled};
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: #{$token-btn-light-border-disabled};
+}
+
+// ---- Clean (link / ghost) --------------------------------------------------
+.btn-clean {
+  --bs-btn-font-weight: 500;
+  --bs-btn-color: #{$token-btn-clean-color};
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: #{$token-btn-clean-color-hover};
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-color: #{$token-btn-clean-color-hover};
+  --bs-btn-active-bg: transparent;
+  --bs-btn-active-border-color: transparent;
+  --bs-btn-disabled-color: #{$token-btn-clean-color-disabled};
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: transparent;
+  --bs-btn-box-shadow: none;
+
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: none;
+  }
+
+  &.btn-icon:hover:not(:disabled):not(.disabled),
+  &.btn-icon:focus-visible:not(:disabled):not(.disabled) {
+    --bs-btn-hover-bg: #{$token-btn-clean-bg-hover};
+    --bs-btn-hover-border-color: transparent;
+  }
+
+  &:disabled,
+  &.disabled {
+    .bi {
+      color: $token-btn-clean-icon-disabled;
+    }
+  }
+}
+
+// ---- Icon-only -------------------------------------------------------------
+.btn-icon {
+  gap: 0;
+
+  .bi {
+    font-size: 1rem; // 16px
+    line-height: 1;
+  }
+
+  // База = Small 38×38
+  width: 2.375rem;
+  height: 2.375rem;
+  padding: 0.6875rem; // 11px
+}
+
+.btn-icon.btn-lg {
+  // Large 48×48
+  width: 3rem;
+  height: 3rem;
+  padding: 1rem; // 16px
+}

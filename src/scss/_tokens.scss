@@ -50,9 +50,45 @@ $token-yellow-100: #fff3cd; // bg-subtle
 $token-white: #ffffff;
 
 // ----- Typography ------------------------------------------------------------
-// Источник: компонент Badge, node 32:10234 (Manrope Bold 700)
-$token-font-family-display: "Manrope", system-ui, -apple-system, "Segoe UI",
-  Roboto, "Helvetica Neue", sans-serif;
+// Источник: Badge node 32:10234, Button node 32:9890 (Manrope)
+// Подключается через npm-пакет @fontsource-variable/manrope (импорт в main.js).
+// "Manrope Variable" — variable font (один файл на все веса 200–800).
+$token-font-family-display: "Manrope Variable", "Manrope", system-ui,
+  -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+
+// ----- Button (источник: Figma node-id=32:9890, COMPONENT_SET "button") ----
+// Размеры: Large 48px (default .btn), Small 38px (.btn-sm)
+// Стили: Primary, Secondary (outline), Light, Clean (link/ghost)
+// Общее: radius 6px, gap иконка–текст 8px, иконка 16×16
+
+// Primary (fill)
+$token-btn-primary-bg:           $token-blue-100;
+$token-btn-primary-bg-hover:     $token-blue-75;
+$token-btn-primary-bg-disabled:  $token-blue-25;
+$token-btn-primary-color:        $token-white;
+
+// Secondary (outline)
+$token-btn-secondary-color:           $token-black-100;
+$token-btn-secondary-border:          $token-gray-75;
+$token-btn-secondary-bg-hover:        $token-gray-15;
+$token-btn-secondary-border-disabled: $token-gray-50;
+$token-btn-secondary-color-disabled:  $token-black-50;
+$token-btn-secondary-icon-disabled:   $token-black-75;
+
+// Light (fill subtle)
+$token-btn-light-bg:           $token-gray-15;
+$token-btn-light-bg-hover:     $token-black-25;
+$token-btn-light-color:        $token-black-100;
+$token-btn-light-border-disabled: $token-gray-50;
+$token-btn-light-color-disabled:  $token-black-50;
+$token-btn-light-icon-disabled:   $token-black-75;
+
+// Clean (link / ghost)
+$token-btn-clean-color:          $token-blue-100;
+$token-btn-clean-color-hover:    $token-blue-75;
+$token-btn-clean-color-disabled: $token-blue-25;
+$token-btn-clean-bg-hover:       $token-gray-15; // icon-only hover
+$token-btn-clean-icon-disabled:  $token-black-75;
 
 // =============================================================================
 // Семантические алиасы (как в Figma подписаны --bs-* переменные)
