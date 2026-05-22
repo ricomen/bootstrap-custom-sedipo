@@ -1,0 +1,354 @@
+// =============================================================================
+// Custom Select (Vue компонент <custom-select>)
+//
+// Внешний вид соответствует form-control / .btn из проекта.
+// Все цвета и размеры берутся из дизайн-токенов (_tokens.scss) и не
+// дублируют значения, чтобы темизация шла из одного источника.
+//
+// Состояния: default / hover / focus / open / disabled / invalid
+// Размеры: sm / md (default) / lg
+// =============================================================================
+
+// ----- Локальные алиасы (читаемость) ---------------------------------------
+$cs-bg:                $token-white;
+$cs-color:             $token-text-body;
+$cs-border:            $token-gray-75;
+$cs-border-hover:      $token-black-50;
+$cs-border-focus:      $token-blue-100;
+$cs-border-disabled:   $token-gray-50;
+$cs-bg-disabled:       $token-gray-15;
+$cs-color-disabled:    $token-text-tertiary;
+$cs-color-placeholder: $token-text-tertiary;
+
+$cs-dropdown-bg:     $token-white;
+$cs-dropdown-border: $token-gray-50;
+$cs-dropdown-shadow: 0 .5rem 1.25rem rgba(0, 0, 0, .12);
+
+$cs-option-bg-hover:    $token-gray-15;
+$cs-option-bg-selected: $token-blue-10;
+$cs-option-color-selected: $token-blue-100;
+
+$cs-chip-bg:    $token-blue-10;
+$cs-chip-color: $token-blue-100;
+
+$cs-error: $token-red-24-black;
+
+// ----- Корень --------------------------------------------------------------
+.cs {
+  position: relative;
+  width: 100%;
+  font-family: $token-font-family-base;
+  font-size: $btn-font-size;       // 14px (как .btn)
+  line-height: $btn-line-height;   // 20/14
+  color: $cs-color;
+}
+
+// ----- Label / help --------------------------------------------------------
+.cs__label {
+  display: block;
+  margin-bottom: .375rem;
+  font-size: $token-font-size-subtitle-2;
+  font-weight: 500;
+  color: $token-text-body;
+}
+
+.cs__help {
+  display: block;
+  margin-top: .25rem;
+  font-size: $token-font-size-subtitle-3;
+  color: $token-text-tertiary;
+
+  &--error { color: $cs-error; }
+}
+
+// ----- Trigger -------------------------------------------------------------
+.cs__trigger {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  width: 100%;
+  min-height: 2.375rem; // 38px — как .btn (Small)
+  padding: .375rem .75rem;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: $cs-bg;
+  border: 1px solid $cs-border;
+  border-radius: $btn-border-radius; // 6px
+  cursor: pointer;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  outline: none;
+
+  &:hover { border-color: $cs-border-hover; }
+}
+
+.cs--open .cs__trigger,
+.cs__trigger:focus-visible {
+  border-color: $cs-border-focus;
+  box-shadow: 0 0 0 .25rem rgba($token-blue-100, .25);
+}
+
+.cs--disabled .cs__trigger {
+  cursor: not-allowed;
+  pointer-events: none;
+  background: $cs-bg-disabled;
+  color: $cs-color-disabled;
+  border-color: $cs-border-disabled;
+}
+
+.cs--invalid .cs__trigger {
+  border-color: $cs-error;
+}
+
+.cs--invalid.cs--open .cs__trigger,
+.cs--invalid .cs__trigger:focus-visible {
+  box-shadow: 0 0 0 .25rem rgba($cs-error, .25);
+}
+
+// ----- Value (контент внутри trigger) --------------------------------------
+.cs__value {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .25rem .375rem;
+  overflow: hidden;
+}
+
+.cs__value-single {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cs__placeholder {
+  color: $cs-color-placeholder;
+}
+
+// ----- Chips (multi) -------------------------------------------------------
+.cs__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  padding: .125rem .5rem;
+  font-size: $token-font-size-subtitle-3;
+  font-weight: 600;
+  line-height: 1.25;
+  color: $cs-chip-color;
+  background: $cs-chip-bg;
+  border-radius: 999px;
+}
+
+.cs__chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 999px;
+  line-height: 1;
+
+  &:hover { background: rgba($token-blue-100, .15); }
+  &:focus-visible {
+    outline: 2px solid rgba($token-blue-100, .5);
+    outline-offset: 1px;
+  }
+}
+
+// ----- Actions (clear / caret) ---------------------------------------------
+.cs__actions {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: .25rem;
+  color: $token-text-secondary;
+}
+
+.cs__clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  border-radius: .25rem;
+  line-height: 1;
+
+  &:hover  { color: $token-text-body; background: $token-gray-15; }
+  &:focus-visible {
+    outline: 2px solid rgba($token-blue-100, .5);
+    outline-offset: 1px;
+  }
+}
+
+.cs__caret {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  transition: transform .2s ease-in-out;
+}
+
+.cs--open .cs__caret { transform: rotate(180deg); }
+
+// ----- Dropdown ------------------------------------------------------------
+.cs__dropdown {
+  position: absolute;
+  z-index: $zindex-dropdown;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  background: $cs-dropdown-bg;
+  border: 1px solid $cs-dropdown-border;
+  border-radius: $btn-border-radius;
+  box-shadow: $cs-dropdown-shadow;
+  overflow: hidden;
+}
+
+// ----- Search --------------------------------------------------------------
+.cs__search {
+  padding: .5rem;
+  border-bottom: 1px solid $token-gray-25;
+}
+
+.cs__search-input {
+  width: 100%;
+  padding: .375rem .625rem;
+  font: inherit;
+  color: $cs-color;
+  background: $cs-bg;
+  border: 1px solid $cs-border;
+  border-radius: $btn-border-radius;
+  outline: none;
+
+  &:focus {
+    border-color: $cs-border-focus;
+    box-shadow: 0 0 0 .15rem rgba($token-blue-100, .2);
+  }
+
+  &::placeholder { color: $cs-color-placeholder; }
+}
+
+// ----- List + options ------------------------------------------------------
+.cs__list {
+  list-style: none;
+  margin: 0;
+  padding: .25rem;
+  overflow-y: auto;
+  scroll-padding: .25rem 0;
+}
+
+.cs__option {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem .625rem;
+  border-radius: .375rem;
+  cursor: pointer;
+  user-select: none;
+
+  &.is-highlighted:not(.is-disabled) {
+    background: $cs-option-bg-hover;
+  }
+
+  &.is-selected {
+    background: $cs-option-bg-selected;
+    color: $cs-option-color-selected;
+    font-weight: 600;
+  }
+
+  &.is-selected.is-highlighted {
+    background: mix($cs-option-bg-selected, $cs-option-bg-hover, 60%);
+  }
+
+  &.is-disabled {
+    color: $cs-color-disabled;
+    cursor: not-allowed;
+  }
+}
+
+.cs__option-icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+}
+
+.cs__option-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 1.25rem;
+}
+
+.cs__option-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cs__option-description {
+  font-weight: 400;
+  font-size: $token-font-size-subtitle-3;
+  color: $token-text-tertiary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cs__option-check {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  color: $cs-option-color-selected;
+}
+
+.cs__empty {
+  padding: .75rem .625rem;
+  font-size: $token-font-size-subtitle-2;
+  color: $token-text-tertiary;
+  text-align: center;
+}
+
+// ----- Sizes ---------------------------------------------------------------
+.cs--sm {
+  font-size: $token-font-size-subtitle-3; // 12px
+
+  .cs__trigger {
+    min-height: 2rem; // 32px
+    padding: .25rem .625rem;
+  }
+}
+
+.cs--lg {
+  font-size: $token-font-size-subtitle-1; // 16px
+
+  .cs__trigger {
+    min-height: 3rem; // 48px — как .btn-lg
+    padding: .625rem 1rem;
+  }
+}

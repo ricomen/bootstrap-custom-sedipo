@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap + Vite</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="https://unpkg.com/primevue/umd/primevue.min.js"></script>
-    <script src="https://unpkg.com/@primeuix/themes/umd/aura.js"></script>
   </head>
   <body>
     <div id="app">
@@ -301,6 +299,94 @@
         </div>
       </section>
 
+      <!-- Custom Select (Vue 3 компонент) -->
+      <section class="mb-4" aria-label="Custom Select">
+        <h2 class="h5 mb-3">Custom Select (Vue)</h2>
+
+        <div class="row g-3">
+          <div class="col-md-6 col-lg-4">
+            <h3 class="h6 text-secondary mb-2">Single — простой</h3>
+            <custom-select
+              v-model="singleSimple"
+              :options="simpleOptions"
+              placeholder="Выберите страну"
+              clearable
+            ></custom-select>
+            <p class="small text-secondary mt-2 mb-0">
+              Значение: <code>{{ singleSimple ?? '—' }}</code>
+            </p>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <h3 class="h6 text-secondary mb-2">Single — с поиском и иконками</h3>
+            <custom-select
+              v-model="singleCountry"
+              :options="countryOptions"
+              placeholder="Страна"
+              searchable
+              clearable
+            ></custom-select>
+            <p class="small text-secondary mt-2 mb-0">
+              Значение: <code>{{ singleCountry ?? '—' }}</code>
+            </p>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <h3 class="h6 text-secondary mb-2">Multi + search + clearable</h3>
+            <custom-select
+              v-model="multiCountries"
+              :options="countryOptions"
+              placeholder="Несколько стран"
+              multiple
+              searchable
+              clearable
+            ></custom-select>
+            <p class="small text-secondary mt-2 mb-0">
+              Значение: <code>{{ multiCountries }}</code>
+            </p>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <h3 class="h6 text-secondary mb-2">С описанием — Large</h3>
+            <custom-select
+              v-model="accountValue"
+              :options="accountOptions"
+              placeholder="Счёт списания"
+              size="lg"
+              clearable
+            ></custom-select>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <h3 class="h6 text-secondary mb-2">Small + label + help</h3>
+            <custom-select
+              v-model="labeledValue"
+              :options="simpleOptions"
+              placeholder="Не выбрано"
+              size="sm"
+              label="Страна"
+              help="Только для резидентов"
+            ></custom-select>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <h3 class="h6 text-secondary mb-2">Disabled + invalid</h3>
+            <div class="d-flex flex-column gap-2">
+              <custom-select
+                :options="simpleOptions"
+                placeholder="Disabled"
+                disabled
+              ></custom-select>
+              <custom-select
+                :options="simpleOptions"
+                placeholder="Не выбрано"
+                error="Обязательное поле"
+              ></custom-select>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Badges (Figma node-id=32:10234) -->
       <section class="mb-4" aria-label="Badges">
         <h2 class="h5 mb-3">Badges</h2>
@@ -390,19 +476,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-      const { createApp, ref } = Vue;
-
-      const app = createApp({
-          setup() {
-
-          }
-      });
-
-      app.mount('#app');
-      app.use(PrimeVue.Config);
-  </script>
 
     <script type="module" src="/src/main.js"></script>
   </body>

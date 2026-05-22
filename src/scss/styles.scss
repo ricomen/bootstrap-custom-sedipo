@@ -66,6 +66,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "toasts";
 @import "badges";
 @import "buttons";
+@import "select";
 
 // 9. Свои стили проекта ниже
 // Точный матч с Figma typography-токенами для heading/display классов.
