@@ -68,6 +68,45 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 @import "buttons";
 
 // 9. Свои стили проекта ниже
+// Точный матч с Figma typography-токенами для heading/display классов.
+h1, .h1 {
+  line-height: $token-line-height-h1;
+}
+
+h2, .h2 {
+  line-height: $token-line-height-h2;
+}
+
+h3, .h3 {
+  line-height: $token-line-height-subtitle-1;
+}
+
+h4, .h4 {
+  font-weight: $token-font-weight-bold;
+  line-height: $token-line-height-subtitle-2;
+}
+
+h5, .h5,
+h6, .h6 {
+  font-weight: $token-font-weight-bold;
+  line-height: $token-line-height-subtitle-3;
+}
+
+.display-1 {
+  line-height: $token-line-height-display-1;
+}
+
+// .fs-* utilities (Figma node 32:9840).
+// Размеры подтянуты через $font-sizes (см. _variables.scss); здесь добавляем
+// line-height по токенам typography. Font-weight не трогаем — наследуется
+// от элемента (h1..h6 -> semibold/bold, p/span/etc. -> regular).
+.fs-1 { line-height: $token-line-height-h1; }
+.fs-2 { line-height: $token-line-height-h2; }
+.fs-3 { line-height: $token-line-height-subtitle-1; }
+.fs-4 { line-height: $token-line-height-subtitle-2; }
+.fs-5,
+.fs-6 { line-height: $token-line-height-subtitle-3; }
+
 body {
   min-height: 100vh;
 }

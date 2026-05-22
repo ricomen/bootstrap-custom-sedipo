@@ -50,11 +50,36 @@ $token-yellow-100: #fff3cd; // bg-subtle
 $token-white: #ffffff;
 
 // ----- Typography ------------------------------------------------------------
-// Источник: Badge node 32:10234, Button node 32:9890 (Manrope)
+// Источник: Typography node 32:9840, Badge node 32:10234, Button node 32:9890
 // Подключается через npm-пакет @fontsource-variable/manrope (импорт в main.js).
 // "Manrope Variable" — variable font (один файл на все веса 200–800).
 $token-font-family-display: "Manrope Variable", "Manrope", system-ui,
   -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+
+// Базовая типографика
+$token-font-family-base: $token-font-family-display;
+$token-letter-spacing-base: 0;
+$token-font-weight-regular: 400;
+$token-font-weight-semibold: 600;
+$token-font-weight-bold: 700;
+
+// Display (Figma "Typography")
+$token-font-size-display-1: 6.25rem; // 100px
+$token-line-height-display-1: 1.37; // 137px / 100px
+
+// Headings
+$token-font-size-h1: 2rem; // 32px
+$token-line-height-h1: 1.375; // 44px / 32px
+$token-font-size-h2: 1.5rem; // 24px
+$token-line-height-h2: 1.333333; // 32px / 24px
+
+// Subheadings
+$token-font-size-subtitle-1: 1rem; // 16px
+$token-line-height-subtitle-1: 1.5; // 24px / 16px
+$token-font-size-subtitle-2: 0.875rem; // 14px
+$token-line-height-subtitle-2: 1.428571; // 20px / 14px
+$token-font-size-subtitle-3: 0.75rem; // 12px
+$token-line-height-subtitle-3: 1.166667; // 14px / 12px
 
 // ----- Button (источник: Figma node-id=32:9890, COMPONENT_SET "button") ----
 // Размеры: Large 48px (default .btn), Small 38px (.btn-sm)

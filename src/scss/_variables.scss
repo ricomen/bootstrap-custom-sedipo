@@ -55,9 +55,47 @@ $warning-text-emphasis: $token-emphasis-text-warning;
 // Типографика
 // Manrope — единый шрифт всей системы (см. _tokens.scss → $token-font-family-display).
 // Подключён через npm-пакет @fontsource-variable/manrope (импорт в src/main.js).
-$font-family-sans-serif: $token-font-family-display;
-$font-size-base: 1rem;
-$line-height-base: 1.5;
+$font-family-sans-serif: $token-font-family-base;
+$font-size-base: $token-font-size-subtitle-1; // 16px
+$line-height-base: $token-line-height-subtitle-1; // 24/16
+
+// Bootstrap heading/display scale на основе токенов Figma Typography (node 32:9840)
+$headings-font-family: $token-font-family-base;
+$headings-font-weight: $token-font-weight-semibold;
+$headings-line-height: $token-line-height-h1;
+
+$h1-font-size: $token-font-size-h1;
+$h2-font-size: $token-font-size-h2;
+$h3-font-size: $token-font-size-subtitle-1;
+$h4-font-size: $token-font-size-subtitle-2;
+$h5-font-size: $token-font-size-subtitle-3;
+$h6-font-size: $token-font-size-subtitle-3;
+
+// .fs-* utilities — явный маппинг на токены Figma Typography.
+// Bootstrap по умолчанию пересобрал бы этот map из $hN-font-size; делаем
+// зависимость явной, чтобы было очевидно, откуда берётся каждое значение.
+// line-height докручивается в styles.scss (BS-утилита задаёт только font-size).
+$font-sizes: (
+  1: $token-font-size-h1,
+  2: $token-font-size-h2,
+  3: $token-font-size-subtitle-1,
+  4: $token-font-size-subtitle-2,
+  5: $token-font-size-subtitle-3,
+  6: $token-font-size-subtitle-3,
+);
+
+$display-font-family: $token-font-family-base;
+$display-font-style: null;
+$display-font-weight: $token-font-weight-bold;
+$display-line-height: $token-line-height-display-1;
+$display-font-sizes: (
+  1: $token-font-size-display-1,
+  2: $h1-font-size,
+  3: $h2-font-size,
+  4: $h3-font-size,
+  5: $h4-font-size,
+  6: $h5-font-size
+);
 
 // Геометрия
 $border-radius: 0.5rem;
