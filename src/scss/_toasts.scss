@@ -4,21 +4,16 @@
 // Варианты Color: default, primary, success, danger, warning, dark.
 //
 // Отличия от дефолта Bootstrap 5.3:
-//   - max-width 350px, padding 12px, font-size 14px / line-height 20px
+//   - padding-y 12px (BS default 8px), line-height 20px
 //   - border-radius 4px (по Figma), без border
-//   - тень 0 8px 16px rgba(0,0,0,.15)
 //   - фон у цветовых вариантов сплошной (а не полупрозрачный body-bg)
 //   - крестик без BS-маски: серый на светлых вариантах, белый — на тёмных
 // =============================================================================
 
 .toast {
-  --bs-toast-max-width: 350px;
-  --bs-toast-padding-x: 0.75rem;     // 12px
-  --bs-toast-padding-y: 0.75rem;     // 12px
-  --bs-toast-font-size: 0.875rem;    // 14px
+  --bs-toast-padding-y: 0.75rem;     // 12px (BS default .5rem)
   --bs-toast-border-radius: 0.25rem; // 4px
   --bs-toast-border-width: 0;
-  --bs-toast-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --bs-toast-bg: #{$token-white};
   --bs-toast-color: #{$token-text-body};
 
